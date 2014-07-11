@@ -35,7 +35,7 @@
 
 <p>
 	<ol>
-		<li>Include MonoDll/Headers/IMonoScriptSystem.h and MonoDll/Headers/CryMonoInitializationHelpers.h in GameStartup.cpp</li>
+		<li>Include <a style="color: #008000"></a>MonoDll/Headers/IMonoScriptSystem.h</a> and MonoDll/Headers/CryMonoInitializationHelpers.h in GameStartup.cpp</li>
 		<li>Add 'IMonoScriptSystem *IMonoScriptSystem::g_pThis = 0;' to GameStartup.cpp</li>
 		<li>Add the line 'InitCryMono(pSystem, m_pFramework);' after the 'ModuleInitISystem(m_pFramework->GetISystem(),"CryGame");' line</li>
 		<li>(Optional) Include MonoDll/Headers/IMonoScriptSystem.h in Game.cpp and add 'IMonoScriptSystem::g_pThis->RegisterFlownodes();' in CGame::RegisterGameFlowNodes</li>
