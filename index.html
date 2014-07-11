@@ -14,26 +14,33 @@
   <body>
     <div class="wrapper">
       <header>
-        <h1><a href="https://github.com/inkdev/CryMono" style="font-size: 36px; font-family:Consolas; text-decoration:none; word-spacing: -10px;"><span style="color:#3F99D2;">using</span> <span style="color:#000">CryMono;</span></a></h1>
+        <h1><a href="https://github.com/PoppermostProductions/CryMono" style="font-size: 36px; font-family:Consolas; text-decoration:none; word-spacing: -10px;"><span style="color:#3F99D2;">using</span> <span style="color:#000">CryMono;</span></a></h1>
        
-	   <p>.NET game logic for CryENGINE3</p>
+	   <p>.NET game logic for CryENGINE</p>
 
 		
 		<h1>Sources</h1>
         <ul class="source">
-          <li><a href="https://github.com/inkdev/CryMono/zipball/master">Download <strong>ZIP File</strong></a></li>
-          <li><a href="https://github.com/inkdev/CryMono/tarball/master">Download <strong>TAR Ball</strong></a></li>
-          <li><a href="https://github.com/inkdev/CryMono">View On <strong>GitHub</strong></a></li>
+          <li><a href="https://github.com/PoppermostProductions/CryMono/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/PoppermostProductions/CryMono/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/PoppermostProductions/CryMono">View On <strong>GitHub</strong></a></li>
         </ul>
       </header>
       <section>
 <h1>Description</h1>
 
-<p>CryMono brings the power of .NET into the world of CryENGINE3, allowing for game logic to be scripted in a much faster and more intuitive way than before.</p>
+<p>CryMono brings the power of .NET into the world of CryENGINE, allowing for game logic to be scripted in a much faster and more intuitive way than before.</p>
 
-<h3>Documentation</h3>
+<h3>Integrating into the GameDLL</h3>
 
-<p>For instructions on all things CryMono, see our Confluence setup at <a href="http://docs.inkdev.net">docs.inkdev.net</a>.</p>
+<p>
+	<ol>
+		<li>Include MonoDll/Headers/IMonoScriptSystem.h and MonoDll/Headers/CryMonoInitializationHelpers.h in GameStartup.cpp</li>
+		<li>Add 'IMonoScriptSystem *IMonoScriptSystem::g_pThis = 0;' to GameStartup.cpp</li>
+		<li>Add the line 'InitCryMono(pSystem, m_pFramework);' after the 'ModuleInitISystem(m_pFramework->GetISystem(),"CryGame");' line</li>
+		<li>(Optional) Include MonoDll/Headers/IMonoScriptSystem.h in Game.cpp and add 'IMonoScriptSystem::g_pThis->RegisterFlownodes();' in CGame::RegisterGameFlowNodes</li>
+	</ol>
+</p>
 
 <h4>Need help?</h4>
 
